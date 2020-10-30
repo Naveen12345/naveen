@@ -1,0 +1,56 @@
+mysql> CREATE TABLE emp(empid INT,empname varchar(100),location varchar(100));
+Query OK, 0 rows affected (2.18 sec)
+
+mysql>  insert into emp (empid,empname,location) values ('1','naveen','bangalore');
+Query OK, 1 row affected (0.08 sec)
+
+mysql>  insert into emp (empid,empname,location) values ('2','charan','hyderabad');
+Query OK, 1 row affected (0.12 sec)
+
+mysql>  insert into emp (empid,empname,location) values ('3','tanuja','chennai');
+Query OK, 1 row affected (0.09 sec)
+
+mysql>  insert into emp (empid,empname,location) values ('4','sudhakar','delhi'),('5','varun','kochi');
+Query OK, 2 rows affected (0.12 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from emp;
++-------+----------+-----------+
+| empid | empname  | location  |
++-------+----------+-----------+
+|     1 | naveen   | bangalore |
+|     2 | charan   | hyderabad |
+|     3 | tanuja   | chennai   |
+|     4 | sudhakar | delhi     |
+|     5 | varun    | kochi     |
++-------+----------+-----------+
+5 rows in set (0.05 sec)
+
+mysql> UPDATE emp SET location='chennai' WHERE empid='5';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from emp;
++-------+----------+-----------+
+| empid | empname  | location  |
++-------+----------+-----------+
+|     1 | naveen   | bangalore |
+|     2 | charan   | hyderabad |
+|     3 | tanuja   | chennai   |
+|     4 | sudhakar | delhi     |
+|     5 | varun    | chennai   |
++-------+----------+-----------+
+
+mysql> DELETE FROM emp WHERE empid='4';
+Query OK, 1 row affected (0.21 sec)
+
+mysql> select *from emp;
++-------+---------+-----------+
+| empid | empname | location  |
++-------+---------+-----------+
+|     1 | naveen  | bangalore |
+|     2 | charan  | hyderabad |
+|     3 | tanuja  | chennai   |
+|     5 | varun   | chennai   |
++-------+---------+-----------+
+4
